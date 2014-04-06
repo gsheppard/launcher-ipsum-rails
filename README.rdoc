@@ -2,4 +2,7 @@ Launch Ipsum is a Lorem Ipsum-like app except that it utilizes NASA dictionary t
 
 To set up, ensure to seed the database.
 
+    bundle install
+    rake db:create
+    rake db:migrate
     rake db:seed
