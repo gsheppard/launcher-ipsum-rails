@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+progressbar = ProgressBar.create(total: nil)
 File.open(File.join(Rails.root, 'db', 'dictionary.md')).each_line do |row|
-  DictionaryWord.create(word: row.chomp)
+  DictionaryWord.find_or_create_by(word: row.chomp)
+  progressbar.increment
 end

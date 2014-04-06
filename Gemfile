@@ -26,4 +26,5 @@ end
 
 group :development, :test do
   gem 'pry-rails'
+  gem 'ruby-progressbar'
 end
