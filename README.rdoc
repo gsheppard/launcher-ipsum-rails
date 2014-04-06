@@ -6,3 +6,7 @@ To set up, ensure to seed the database.
     rake db:create
     rake db:migrate
     rake db:seed
+
+History:
+
+Launch Ipsum originally started as a command line program during my first week at Launch Academy. I had to write my own scraper and parser programs to get the information from the NASA dictionary website which had not been updated since 2001. From there it evolved into a Sinatra-based web app, and now as a Rails app.
