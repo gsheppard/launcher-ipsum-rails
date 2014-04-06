@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'foundation-rails'
 gem 'simple_form'
+gem 'quiet_assets'
 
 group :doc do
   gem 'sdoc', require: false
