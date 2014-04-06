@@ -13,20 +13,39 @@
 
   <body>
 
-    <% if notice %>
-      <p class="alert-box success">
-        <%= notice %>
-        <a href="#" class="close">&times;</a>
-      </p>
-    <% end %>
-    <% if alert %>
-      <p class="alert-box alert">
-        <%= alert %>
-        <a href="#" class="close">&times;</a>
-      </p>
-    <% end %>
+    <div class="row">
+      <div class="small-5 columns text-right">
+        <h1>Launch</h1>
+      </div>
+      <div class="small-2 column text-center">
+        <%= image_tag "Launch_Academy_Logo.png" %>
+      </div>
+      <div class="small-5 columns text-left">
+        <h1>Ipsum</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <% if notice %>
+          <p class="alert-box success">
+            <%= notice %>
+            <a href="#" class="close">&times;</a>
+          </p>
+        <% end %>
+        <% if alert %>
+          <p class="alert-box alert">
+            <%= alert %>
+            <a href="#" class="close">&times;</a>
+          </p>
+        <% end %>
+      </div>
+    </div>
+
 
     <%= yield %>
+
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>
