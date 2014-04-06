@@ -22,7 +22,7 @@ feature 'home page with form', %q{
     expect(page.all('p.ipsum').count).to eq(5)
   end
 
-  scenario 'fill in form with invalid info' do
+  scenario 'fill in form with blank info' do
     visit root_path
 
     click_button 'Launch!'
@@ -30,5 +30,26 @@ feature 'home page with form', %q{
     expect(page.all('p.ipsum').count).to eq(0)
     expect(page).to have_content('Please enter a valid number')
   end
+
+  scenario 'fill in with a number too large' do
+    visit root_path
+
+    fill_in 'How many paragraphs?', with: '21'
+    click_button 'Launch!'
+
+    expect(page.all('p.ipsum').count).to eq(0)
+    expect(page).to have_content('Please enter a valid number')
+  end
+
+  scenario 'fill in with letters' do
+    visit root_path
+
+    fill_in 'How many paragraphs?', with: 'abc'
+    click_button 'Launch!'
+
+    expect(page.all('p.ipsum').count).to eq(0)
+    expect(page).to have_content('Please enter a valid number')
+  end
+
 
 end

@@ -5,7 +5,7 @@ class IpsumController < ApplicationController
   end
 
   def post
-    if input <= 0
+    if input <= 0 || input > 20
       redirect_to root_path, alert: 'Please enter a valid number'
     else
       @generated_ipsum = DictionaryWord.build_paragraphs(input)
