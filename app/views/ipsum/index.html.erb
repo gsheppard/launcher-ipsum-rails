@@ -1,5 +1,17 @@
 <%= simple_form_for :ipsum do |f| %>
-  <%= f.label :paragraphs, 'How many paragraphs?' %>
-  <%= f.text_field :paragraphs %>
+  <%= f.label :num, 'How many paragraphs?' %>
+  <%= f.text_field :num %>
   <%= f.button :submit, 'Launch!' %>
+<% end %>
+
+<% if @generated_ipsum %>
+
+  <% @generated_ipsum.each do |para| %>
+    <p class="ipsum">
+    <% para.each do |sent| %>
+      <%= sent.join(' ') %>.
+    <% end %>
+    </p>
+  <% end %>
+
 <% end %>

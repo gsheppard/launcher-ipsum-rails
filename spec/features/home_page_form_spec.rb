@@ -13,6 +13,22 @@ feature 'home page with form', %q{
     expect(page).to have_button('Launch!')
   end
 
-  scenario 'fill in form with valid info'
+  scenario 'fill in form with valid info' do
+    visit root_path
+
+    fill_in 'How many paragraphs?', with: '5'
+    click_button 'Launch!'
+
+    expect(page.all('p.ipsum').count).to eq(5)
+  end
+
+  scenario 'fill in form with invalid info' do
+    visit root_path
+
+    click_button 'Launch!'
+
+    expect(page.all('p.ipsum').count).to eq(0)
+    expect(page).to have_content('Please enter a valid number')
+  end
 
 end

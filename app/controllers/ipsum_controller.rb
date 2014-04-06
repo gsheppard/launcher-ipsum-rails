@@ -4,4 +4,18 @@ class IpsumController < ApplicationController
 
   end
 
+  def post
+    if input <= 0
+      redirect_to root_path, alert: 'Please enter a valid number'
+    else
+      @generated_ipsum = DictionaryWord.build_paragraphs(input)
+      render :index
+    end
+  end
+
+  private
+  def input
+    params[:ipsum][:num].to_i
+  end
+
 end
