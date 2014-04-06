@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+File.open(File.join(Rails.root, 'db', 'dictionary.md')).each_line do |row|
+  DictionaryWord.create(word: row.chomp)
+end
